@@ -246,7 +246,7 @@ lastNodeDomain = decomposition.NodeDomainGet(lastNodeNumber, 1)
 
 # Set the stimulus on half the bottom nodes
 stimComponent = cellML.FieldComponentGet(cellModel, iron.CellMLFieldTypes.PARAMETERS, "membrane/i_Stim")
-for node in range(1,(numberOfXElements + 1)/2 + 1):
+for node in range(1,int(round((numberOfXElements + 1)/2 + 1))):
     nodeDomain = decomposition.NodeDomainGet(node,1)
     if nodeDomain == computationalNodeNumber:
         cellMLParametersField.ParameterSetUpdateNode(iron.FieldVariableTypes.U, iron.FieldParameterSetTypes.VALUES, 1, 1, node, stimComponent, stimValue)
@@ -309,7 +309,7 @@ solverEquations.BoundaryConditionsCreateFinish()
 problem.Solve()
 
 # Now turn the stimulus off
-for node in range(1,(numberOfXElements + 1)/2 + 1):
+for node in range(1,int(round((numberOfXElements + 1)/2 + 1))):
 #for node in range(1,numberOfXElements+2):
     nodeDomain = decomposition.NodeDomainGet(node,1)
     if nodeDomain == computationalNodeNumber:
