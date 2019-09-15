@@ -311,7 +311,7 @@ solverEquations.BoundaryConditionsCreateFinish()
 problem.Solve()
 
 # Now turn the stimulus off
-for node in range(1,(numberOfXElements + 1)/2 + 1):
+for node in range(1,int((numberOfXElements + 1)/2) + 1):
 #for node in range(1,numberOfXElements+2):
     nodeDomain = decomposition.NodeDomainGet(node,1)
     if nodeDomain == computationalNodeNumber:
