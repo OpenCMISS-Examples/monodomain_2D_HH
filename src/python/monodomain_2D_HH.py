@@ -7,6 +7,8 @@ import sys, os, math
 import random
 random.seed(100)
 
+path=os.path.dirname(os.path.abspath(__file__))
+
 # Intialise OpenCMISS
 from opencmiss.iron import iron
 #DOC-END imports
@@ -163,7 +165,7 @@ materialsField.ComponentValuesInitialise(iron.FieldVariableTypes.U,iron.FieldPar
 if len(sys.argv) > 1:
 	cellmlFile = sys.argv[1]
 else:
-	cellmlFile = './HodgkinHuxley1952.cellml'
+	cellmlFile = os.path.join(path,'HodgkinHuxley1952.cellml')
 
 #DOC-START create cellml environment
 # Create the CellML environment
