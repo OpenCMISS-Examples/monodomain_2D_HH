@@ -248,7 +248,7 @@ lastNodeDomain = decomposition.NodeDomainGet(lastNodeNumber, 1)
 
 # Set the stimulus on half the bottom nodes
 stimComponent = cellML.FieldComponentGet(cellModel, iron.CellMLFieldTypes.PARAMETERS, "membrane/i_Stim")
-for node in range(1,(numberOfXElements + 1)/2 + 1):
+for node in range(1,int((numberOfXElements + 1)/2) + 1):
     nodeDomain = decomposition.NodeDomainGet(node,1)
     if nodeDomain == computationalNodeNumber:
         cellMLParametersField.ParameterSetUpdateNode(iron.FieldVariableTypes.U, iron.FieldParameterSetTypes.VALUES, 1, 1, node, stimComponent, stimValue)
